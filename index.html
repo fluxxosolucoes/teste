@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JL Soluções Contábeis | Consultoria Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #2d2d2d;       
+            --rose: #d4a39d;     
+            --card-bg: #3d3d3d;  
+            --text-main: #f4f4f4;
+            --text-muted: #c0c0c0;
+            --glass: rgba(255, 255, 255, 0.04);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text-main); 
+            margin: 0; 
+            line-height: 1.8; 
+            letter-spacing: 0.3px;
+        }
+
+        h1, h2, h3, .logo { 
+            font-family: 'Playfair Display', serif; 
+        }
+
+        header { 
+            padding: 30px 10%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(45, 45, 45, 0.85);
+            backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid rgba(212, 163, 157, 0.1);
+        }
+
+        .logo { 
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+            color: var(--rose); 
+        }
+
+        .cta-button { 
+            background: transparent;
+            border: 1px solid var(--rose); 
+            color: var(--rose); 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 3px;
+            transition: all 0.4s ease; 
+        }
+        
+        .cta-button:hover { 
+            background: var(--rose); 
+            color: #2d2d2d; 
+            box-shadow: 0 4px 15px rgba(212, 163, 157, 0.2);
+        }
+
+        .hero { padding: 130px 10%; text-align: center; }
+        
+        .hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 20px; 
+            color: var(--rose);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--text-muted); 
+            max-width: 650px; 
+            margin: 0 auto 40px auto; 
+            font-weight: 300;
+        }
+
+        .section { padding: 100px 10%; }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.8rem; color: var(--text-main); margin-bottom: 15px; }
+        .section-header .divider { width: 60px; height: 2px; background: var(--rose); margin: 0 auto; }
+
+        /* --- SESSÃO SOBRE NÓS --- */
+        .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-content { flex: 1; min-width: 300px; }
+        .about-content h2 { font-size: 2.8rem; margin-bottom: 15px; color: var(--rose); }
+        .about-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+        .about-visual { flex: 1; min-width: 300px; display: flex; justify-content: center; }
+
+        .about-glass-box {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-glass-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212,163,157,0.1) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        /* --- GRID DE CARDS DE SERVIÇOS --- */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+        
+        .card { 
+            background: var(--card-bg); position: relative; padding: 50px 40px; 
+            border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform 0.5s ease, box-shadow 0.5s ease; overflow: hidden;
+        }
+
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: var(--rose); opacity: 0.7; transition: opacity 0.4s ease;
+        }
+        
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); background: rgba(61, 61, 61, 0.8); }
+        .card:hover::before { opacity: 1; }
+        .card h3 { color: var(--rose); font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; }
+        .card p { color: var(--text-muted); font-weight: 300; margin: 0; }
+
+        /* --- SESSÃO INSTAGRAM --- */
+        .insta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+
+        .insta-post {
+            background: var(--card-bg); border-radius: 8px; overflow: hidden;
+            text-decoration: none; border: 1px solid rgba(255,255,255,0.03);
+            transition: transform 0.4s ease; display: flex; flex-direction: column;
+        }
+
+        .insta-post:hover { transform: translateY(-5px); border-color: var(--rose); }
+
+        /* Estilo atualizado para receber fotos reais */
+        .insta-img-wrapper {
+            height: 200px; width: 100%;
+            overflow: hidden; position: relative;
+            background: #242424;
+        }
+
+        .insta-img-wrapper img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .insta-post:hover .insta-img-wrapper img { transform: scale(1.05); }
+
+        .insta-img-wrapper::after {
+            content: '\f16d'; font-family: 'Font Awesome 6 Brands';
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem; color: #fff; opacity: 0;
+            transition: opacity 0.3s ease;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        .insta-post:hover .insta-img-wrapper::after { opacity: 1; }
+
+        .insta-caption { padding: 20px; color: var(--text-muted); font-size: 0.9rem; font-weight: 300; line-height: 1.5; }
+        .insta-header { display: flex; align-items: center; gap: 10px; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .insta-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--rose); display: flex; justify-content: center; align-items: center; color: var(--bg); font-size: 0.8rem; }
+        
+        /* --- RODAPÉ --- */
+        footer { padding: 60px 10%; background: #242424; border-top: 1px solid rgba(212, 163, 157, 0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-brand { color: var(--rose); font-family: 'Playfair Display', serif; font-size: 1.2rem;}
+        .footer-text { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; }
+
+        /* --- MENU FLUTUANTE PREMIUM --- */
+        .floating-menu { position: fixed; bottom: 40px; right: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 1000; }
+        .floating-options { display: flex; flex-direction: column; gap: 12px; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .floating-menu:hover .floating-options, .floating-menu:focus-within .floating-options { opacity: 1; visibility: visible; transform: translateY(0); }
+        .floating-main-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--rose); color: var(--bg); border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease; }
+        .floating-menu:hover .floating-main-btn { transform: rotate(15deg) scale(1.05); }
+        .floating-item { width: 50px; height: 50px; border-radius: 50%; background: rgba(61, 61, 61, 0.9); backdrop-filter: blur(5px); color: var(--text-main); text-decoration: none; display: flex; justify-content: center; align-items: center; font-size: 1.3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid rgba(212, 163, 157, 0.2); transition: all 0.3s ease; }
+        .floating-item:hover { background: var(--rose); color: var(--bg); transform: translateX(-5px); }
+        @media (max-width: 768px) { .floating-menu { bottom: 20px; right: 20px; } .floating-main-btn { width: 55px; height: 55px; font-size: 1.4rem; } .floating-item { width: 45px; height: 45px; font-size: 1.2rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">JL Soluções</div>
+        <a href="https://wa.me/5583999423099" class="cta-button">Falar Conosco</a>
+    </header>
+
+    <section class="hero">
+        <h1>Decisões de Negócio com Precisão</h1>
+        <p>Sem uma contabilidade estratégica, não há boas decisões. Consultoria especializada e humanizada em João Pessoa.</p>
+        <a href="https://wa.me/5583999423099" class="cta-button" style="background: var(--rose); color: var(--bg);">Agendar Consultoria</a>
+    </section>
+
+    <section class="section" style="background: #282828;">
+        <div class="about-wrapper">
+            <div class="about-content">
+                <h2>Sobre a JL Soluções</h2>
+                <div class="divider" style="margin: 0 0 25px 0; width: 50px;"></div>
+                <p>Com forte presença no mercado paraibano, a <strong>JL Soluções Contábeis</strong> nasceu da visão de transformar a contabilidade tradicional em uma verdadeira ferramenta de gestão e crescimento.</p>
+                <p>Nossa equipe de especialistas combina rigor técnico com um atendimento consultivo e próximo. Nosso objetivo é garantir que seu negócio opere com total segurança fiscal, jurídica e trabalhista, permitindo que você foque no que importa: escalar seus resultados.</p>
+            </div>
+            <div class="about-visual">
+                <div class="about-glass-box">
+                    <i class="fas fa-balance-scale-right" style="font-size: 3.5rem; color: var(--rose); margin-bottom: 15px;"></i>
+                    <h3 style="font-family: 'Playfair Display', serif; color: #fff; margin: 0; font-size: 1.8rem;">Tradição &<br>Inovação</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Nossos Serviços</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Abertura de CNPJ</h3>
+                <p>Legalização ágil para sua empresa começar com o pé direito e total segurança.</p>
+            </div>
+            <div class="card">
+                <h3>Folha de Pagamento</h3>
+                <p>Gestão de pessoal estruturada, garantindo compliance e proteção jurídica.</p>
+            </div>
+            <div class="card">
+                <h3>Contabilidade Fiscal</h3>
+                <p>Planejamento tributário inteligente focado na redução legal de custos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #242424; border-top: 1px solid rgba(255,255,255,0.02);">
+        <div class="section-header">
+            <h2>Siga nosso Instagram</h2>
+            <div class="divider"></div>
+            <p style="margin-top: 15px; color: var(--text-muted);">Inteligência de negócios, dicas fiscais e atualizações financeiras em <a href="https://www.instagram.com/jlsolucoescontabeis_" target="_blank" style="color: var(--rose); text-decoration: none;">@jlsolucoescontabeis_</a></p>
+        </div>
+
+        <div class="insta-grid">
+            <!-- POST 1 (Com o link que você mandou) -->
+            <a href="https://www.instagram.com/p/DAiprKwxIpS/?igsh=MTl0Z2NidHcxYXB1Zg==" target="_blank" class="insta-post">
+                <div class="insta-header">
+                    <div class="insta-avatar"><i class="fas fa-building"></i></div>
+                    <strong style="color: #fff; font-size: 0.9rem;">jlsolucoescontabeis_</strong>
+                </div>
+                
+                <div class="insta-img-wrapper">
+                    <!-- AQUI ENTRA A FOTO: Substitua a URL abaixo pela imagem salva no seu projeto (ex: src="img/post1.jpg") -->
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=400" alt="Post Instagram JL Soluções">
+                </div>
+                
+                <div class="insta-caption">
+                    <strong>jlsolucoescontabeis_</strong> Conheça nossas soluções focadas em alavancar os resultados da sua empresa de maneira segura...
+                </div>
+            </a>
+
+            <!-- POST 2 -->
+            <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="insta-post">
+                <div class="insta-header">
+                    <div class="insta-avatar"><i class="fas fa-building"></i></div>
+                    <strong style="color: #fff; font-size: 0.9rem;">jlsolucoescontabeis_</strong>
+                </div>
+                <div class="insta-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400" alt="Post Instagram">
+                </div>
+                <div class="insta-caption">
+                    <strong>jlsolucoescontabeis_</strong> Entenda a importância do controle de fluxo de caixa para a longevidade do seu negócio...
+                </div>
+            </a>
+
+            <!-- POST 3 -->
+            <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="insta-post">
+                <div class="insta-header">
+                    <div class="insta-avatar"><i class="fas fa-building"></i></div>
+                    <strong style="color: #fff; font-size: 0.9rem;">jlsolucoescontabeis_</strong>
+                </div>
+                <div class="insta-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=400" alt="Post Instagram">
+                </div>
+                <div class="insta-caption">
+                    <strong>jlsolucoescontabeis_</strong> Mudanças na Legislação Trabalhista. O que o RH e a diretoria precisam saber hoje. Arrasta pro lado!
+                </div>
+            </a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="cta-button" style="display: inline-block;">Ver perfil completo</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">JL Soluções Contábeis</div>
+        <div class="footer-text">João Pessoa, PB | (83) 99942-3099</div>
+        <div class="footer-text">&copy; 2026 Todos os direitos reservados.</div>
+    </footer>
+
+    <!-- MENU FLUTUANTE -->
+    <div class="floating-menu">
+        <div class="floating-options">
+            <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="floating-item" title="Siga no Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5583999423099" target="_blank" class="floating-item" title="Fale no WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <button class="floating-main-btn">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+</body>
+</html>
