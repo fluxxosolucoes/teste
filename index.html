@@ -95,7 +95,7 @@
             color: var(--bg);
         }
 
-        /* --- HERO SECTION (NOVA ESTRUTURA COM VÍDEO VERTICAL) --- */
+        /* --- HERO SECTION --- */
         .hero-container {
             padding: 120px 10% 100px 10%;
             background: radial-gradient(circle at top right, rgba(212, 163, 157, 0.05) 0%, transparent 55%);
@@ -129,18 +129,17 @@
             max-width: 580px;
         }
 
-        /* Container do Vídeo Vertical (Proporção 9:16 de Reels/TikTok) */
-        .hero-video-wrapper {
+        .hero-img-wrapper {
             flex: 0.8;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .video-box {
+        .img {
             position: relative;
             width: 100%;
-            max-width: 340px; /* Largura ideal para vídeo vertical */
+            max-width: 340px; 
             aspect-ratio: 9 / 16;
             background: var(--card-bg);
             border-radius: 20px;
@@ -149,7 +148,7 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .video-box video {
+        .img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -162,7 +161,7 @@
         .section-header h2 { font-size: 3rem; color: #ffffff; margin-bottom: 20px; font-weight: 400; }
         .section-header .divider { width: 50px; height: 1px; background: var(--rose); margin: 0 auto; }
 
-        /* --- SEÇÃO SOBRE A CONTADORA (NOVA SESSÃO) --- */
+        /* --- SEÇÃO SOBRE A CONTADORA --- */
         .profile-container {
             display: flex;
             align-items: center;
@@ -176,7 +175,6 @@
             position: relative;
         }
 
-        /* Moldura elegante com efeito de borda dupla */
         .profile-frame {
             position: relative;
             width: 100%;
@@ -279,6 +277,176 @@
         .card h3 { color: #ffffff; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; font-weight: 400; }
         .card p { color: var(--text-muted); font-weight: 300; margin: 0; font-size: 0.95rem; line-height: 1.6; }
 
+        /* --- SEÇÃO DE PLANOS --- */
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tabs-container input[type="radio"] { display: none; }
+
+        .tab-label {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            margin: 0 10px 50px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-label:hover { color: #ffffff; }
+
+        #tab-mei:checked ~ label[for="tab-mei"],
+        #tab-simples:checked ~ label[for="tab-simples"] {
+            color: var(--rose);
+            border-bottom-color: var(--rose);
+        }
+
+        .tab-content { display: none; animation: fadeIn 0.5s ease forwards; }
+        #tab-mei:checked ~ .content-mei, #tab-simples:checked ~ .content-simples { display: block; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+            margin-bottom: 70px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 45px 30px;
+            text-align: left;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 163, 157, 0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .price-card.featured {
+            border: 1px solid rgba(212, 163, 157, 0.35);
+            background: linear-gradient(180deg, #282828 0%, #1e1e1e 100%);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+        }
+
+        .price-card.featured::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--rose); border-radius: 20px 20px 0 0;
+        }
+
+        .card-icon-top {
+            font-size: 2rem;
+            color: var(--rose);
+            margin-bottom: 20px;
+        }
+
+        .card-badge {
+            position: absolute; top: 25px; right: 25px;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--bg); background: var(--rose);
+            padding: 5px 12px; border-radius: 20px; font-weight: 600;
+        }
+
+        .price-card h3 { font-size: 1.9rem; color: #ffffff; margin: 0 0 10px 0; font-weight: 400; }
+        
+        .plan-intro {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            min-height: 45px;
+        }
+
+        .price-limit {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 2px solid var(--rose);
+            padding: 10px 15px;
+            font-size: 0.85rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .price-limit span { color: var(--text-muted); font-weight: 300; }
+
+        .price { font-size: 2.6rem; color: #ffffff; font-weight: 700; margin-bottom: 30px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 300; }
+
+        .price-features { list-style: none; padding: 0; margin: 0 0 35px 0; flex-grow: 1; }
+        .price-features li {
+            font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px;
+            line-height: 1.5; display: flex; align-items: flex-start; gap: 12px; font-weight: 300;
+        }
+        .price-features li i { color: var(--rose); margin-top: 4px; font-size: 0.9rem; width: 16px; text-align: center; }
+
+        .feature-highlight {
+            color: #ffffff !important; font-weight: 500 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px; margin-bottom: 15px !important;
+        }
+
+        .plan-slogan {
+            background: rgba(212, 163, 157, 0.03);
+            border: 1px dashed rgba(212, 163, 157, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .plan-slogan i { color: var(--rose); font-size: 1rem; margin-top: 3px; }
+        .plan-slogan p { margin: 0; font-size: 0.85rem; color: var(--text-muted) italic; line-height: 1.4; }
+
+        .price-btn {
+            display: block; text-align: center; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; padding: 14px;
+            text-decoration: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; transition: var(--transition);
+        }
+        .price-card:hover .price-btn { border-color: var(--rose); color: var(--rose); background: transparent; }
+        .price-card.featured .price-btn { background: var(--rose); color: var(--bg); border: 1px solid var(--rose); }
+        .price-card.featured:hover .price-btn { background: #e5b4ae; border-color: #e5b4ae; color: var(--bg); }
+
+        .plans-benefits-bar {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 163, 157, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            padding: 0 10px;
+        }
+        
+        .benefit-item:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .benefit-item i { color: var(--rose); font-size: 1.5rem; }
+        .benefit-item strong { display: block; color: #ffffff; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .benefit-item span { color: var(--text-muted); font-size: 0.85rem; font-weight: 300; }
+
         /* --- SESSÃO INSTAGRAM --- */
         .insta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
 
@@ -334,8 +502,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.2fr; 
-            gap: 50px;
+            grid-template-columns: 1.5fr 1fr 1fr 2fr; 
+            gap: 40px;
         }
 
         .footer-brand {
@@ -422,6 +590,23 @@
             font-size: 0.9rem;
         }
 
+        /* Container Premium do Mapa */
+        .footer-map-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 157, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .footer-map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(1) invert(0.9) contrast(1.2); /* Deixa o mapa escuro combinando com a ID */
+        }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 70px auto 0 auto;
@@ -438,7 +623,7 @@
         @media (max-width: 1200px) {
             .hero-text h1 { font-size: 3.5rem; }
             .footer-container { grid-template-columns: 1.5fr 1fr 1fr; }
-            .footer-column:last-child { grid-column: span 3; margin-top: 20px; }
+            .footer-column:last-child { grid-column: span 3; }
         }
 
         @media (max-width: 992px) {
@@ -447,10 +632,13 @@
             .hero-text p { margin-left: auto; margin-right: auto; }
             .profile-container { flex-direction: column; text-align: center; gap: 50px; }
             .profile-info .divider { margin: 0 auto 35px auto; }
-            .profile-frame::before { left: 15px; } /* Centraliza sombra mobile */
+            .profile-frame::before { left: 15px; } 
             header { padding: 20px 5%; }
             .footer-container { grid-template-columns: 1fr 1fr; }
             .footer-column:first-child, .footer-column:last-child { grid-column: span 2; }
+            .plans-benefits-bar { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .benefit-item:not(:last-child) { border-right: none; }
+            .benefit-item:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.05); }
         }
 
         @media (max-width: 768px) {
@@ -459,9 +647,11 @@
             .footer-container { grid-template-columns: 1fr; }
             .footer-column { grid-column: span 1 !important; }
             .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+            .plans-benefits-bar { grid-template-columns: 1fr; gap: 20px; }
+            .benefit-item:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 15px; }
         }
 
-        /* --- MENU FLUTUANTE PREMIUM --- */
+        /* --- MENU FLUTUANTE --- */
         .floating-menu { position: fixed; bottom: 40px; right: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 1000; }
         .floating-options { display: flex; flex-direction: column; gap: 12px; opacity: 0; visibility: hidden; transform: translateY(20px); transition: var(--transition); }
         .floating-menu:hover .floating-options, .floating-menu:focus-within .floating-options { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -483,7 +673,7 @@
         <a href="https://wa.me/5583999423099" class="cta-button">Falar Conosco</a>
     </header>
 
-    <!-- HERO (NOVO - DUAS COLUNAS COM VÍDEO VERTICAL) -->
+    <!-- HERO SECTION -->
     <section class="hero-container" id="inicio">
         <div class="hero-text">
             <h1>Decisões de Negócio com <span>Precisão</span></h1>
@@ -491,29 +681,25 @@
             <a href="https://wa.me/5583999423099" class="cta-button cta-primary">Agendar Consultoria</a>
         </div>
         
-        <div class="hero-video-wrapper">
-        <div class="video-box">
-            <video autoplay loop muted playsinline webkit-playsinline preload="auto" style="width:100%; height:100%; object-fit:cover;">
-                <source src="#" type="video/mp4">
-                Seu navegador não suporta a reprodução de vídeos.
-            </video>
+        <div class="hero-img-wrapper">
+            <div class="img">
+                <img src="img/klecia_contadora.jpeg" alt="Contadora Responsável - JL Soluções">
+            </div>
         </div>
-    </div>
     </section>
 
-    <!-- SOBRE A CONTADORA (NOVA SEÇÃO) -->
+    <!-- SOBRE A CONTADORA -->
     <section class="section" style="background: #141414;" id="sobre">
         <div class="profile-container">
             <div class="profile-image-wrapper">
                 <div class="profile-frame">
-                    <!-- COLOQUE A FOTO DA CONTADORA AQUI (ex: img/contadora.jpg) -->
-                    <img src="img/klecia_contadora.jpeg" alt="Contadora Responsável - JL Soluções">
+                    <img src="img/escritorio.jpeg" alt="Contadora Responsável - JL Soluções">
                 </div>
             </div>
             
             <div class="profile-info">
                 <span class="subtitle">Fundadora & Especialista</span>
-                <h2>Klecia Cassiano</h2>
+                <h2>Klécia Cassiano</h2>
                 <h4>Contadora Consultiva </h4>
                 <div class="divider"></div>
                 <p>Com forte presença no mercado paraibano, assumi a missão de transformar a contabilidade tradicional em uma verdadeira ferramenta de gestão inteligente, conectada e impulsionadora de lucros.</p>
@@ -549,6 +735,177 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DE PLANOS E PREÇOS -->
+    <section class="section" id="planos" style="background: #1a1a1a;">
+        <div class="section-header">
+            <h2>Nossos Planos</h2>
+            <div class="divider"></div>
+            <p style="margin-top: 20px; color: var(--text-muted); font-weight: 300;">Soluções contábeis simples, acessíveis e completas para o crescimento da sua empresa.</p>
+        </div>
+
+        <div class="tabs-container">
+            <input type="radio" id="tab-mei" name="planos-tabs" checked>
+            <label for="tab-mei" class="tab-label">Planos MEI</label>
+
+            <input type="radio" id="tab-simples" name="planos-tabs">
+            <label for="tab-simples" class="tab-label">Simples Nacional</label>
+
+            <!-- CONTEÚDO: PLANOS MEI -->
+            <div class="tab-content content-mei">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="card-icon-top"><i class="fas fa-rocket"></i></div>
+                        <h3>Plano Pista</h3>
+                        <p class="plan-intro">MEI na largada. Só o essencial para não tomar multa.</p>
+                        <ul class="price-features">
+                            <li><i class="far fa-calendar-alt"></i> DAS Mensal + Lembrete</li>
+                            <li><i class="far fa-file-alt"></i> DASN-SIMEI Anual</li>
+                            <li><i class="fas fa-chart-bar"></i> Relatório Faturamento</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-bullseye"></i>
+                            <p>Enquanto você foca na pista, a gente cuida do DAS.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Gostaria de saber mais sobre o Plano Pista para MEI." target="_blank" class="price-btn">Iniciar na Pista</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="card-badge">Mais Procurado</div>
+                        <div class="card-icon-top"><i class="fas fa-plane"></i></div>
+                        <h3>Plano Decolar</h3>
+                        <p class="plan-intro">MEI subindo o voo. Precisa de nota e controle.</p>
+                        <ul class="price-features">
+                            <li class="feature-highlight"><i class="fas fa-plus"></i> Tudo do Pista +</li>
+                            <li><i class="fab fa-whatsapp"></i> Suporte WhatsApp</li>
+                            <li><i class="fas fa-file-invoice"></i> Emissão de 5 NFs/mês por nós</li>
+                            <li><i class="fas fa-cloud-download-alt"></i> Acesso App para baixar guias e docs da empresa</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-paper-plane"></i>
+                            <p>Decolou? Agora não cai por besteira fiscal.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Quero expandir com o Plano Decolar para MEI." target="_blank" class="price-btn">Preparar para Decolar</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-icon-top"><i class="fas fa-ship"></i></div>
+                        <h3>Plano Cruzeiro</h3>
+                        <p class="plan-intro">MEI em voo alto. Tem funcionário, fornecedor e banco pedindo balancete.</p>
+                        <ul class="price-features">
+                            <li class="feature-highlight"><i class="fas fa-plus"></i> Tudo do Intermediário +</li>
+                            <li><i class="fas fa-user-plus"></i> 1 Funcionário incluso</li>
+                            <li><i class="fas fa-university"></i> Balanço e DRE para banco (Financiamentos/Empréstimos)</li>
+                            <li><i class="far fa-comments"></i> Reunião Trimestral</li>
+                            <li><i class="far fa-bell"></i> Alerta Desenquadramento</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Em velocidade de cruzeiro você só olha a paisagem. Deixa o fisco com a gente.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Minha empresa está voando alto. Quero o Plano Cruzeiro para MEI." target="_blank" class="price-btn">Entrar em Velocidade de Cruzeiro</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO: SIMPLES NACIONAL -->
+            <div class="tab-content content-simples">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="card-icon-top"><i class="fas fa-rocket"></i></div>
+                        <h3>Plano Pista</h3>
+                        <p class="plan-intro">Empresa na largada. Só o essencial para não tomar multa.</p>
+                        <div class="price-limit"><i class="fas fa-chart-pie"></i> Faturamento até R$ 15.000,00/mês <br> <span>0 - 1 Funcionário</span></div>
+                        <ul class="price-features">
+                            <li><i class="far fa-file-alt"></i> DAS</li>
+                            <li><i class="fas fa-trophy"></i> DEFIS</li>
+                            <li><i class="far fa-user"></i> Pro Labore</li>
+                            <li><i class="fas fa-shield-alt"></i> Controle CND</li>
+                            <li><i class="fas fa-globe"></i> DCTF WEB</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-bullseye"></i>
+                            <p>Enquanto você foca na pista, a gente cuida do DAS.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Gostaria de contratar o Plano Pista para Simples Nacional." target="_blank" class="price-btn">Iniciar na Pista</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="card-badge">Mais Procurado</div>
+                        <div class="card-icon-top"><i class="fas fa-plane"></i></div>
+                        <h3>Plano Decolar</h3>
+                        <p class="plan-intro">Empresa subindo o voo. Precisa de controle.</p>
+                        <div class="price-limit"><i class="fas fa-chart-pie"></i> Faturamento até R$ 50.000,00/mês <br> <span>2 - 5 Funcionários</span></div>
+                        <ul class="price-features">
+                            <li class="feature-highlight"><i class="fas fa-plus"></i> Tudo do Básico +</li>
+                            <li><i class="fas fa-file-invoice"></i> Emissão de 5 NFs/mês por nós</li>
+                            <li><i class="fas fa-balance-scale"></i> Balancete</li>
+                            <li><i class="fas fa-chart-line"></i> Balanço e DRE</li>
+                            <li><i class="far fa-comments"></i> Reunião Trimestral</li>
+                            <li><i class="fas fa-cloud-download-alt"></i> Acesso App para baixar guias e docs da empresa</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-paper-plane"></i>
+                            <p>Decolou e pegou peso. Agora tem folha e guia. Deixa que a gente pilota.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Gostaria de contratar o Plano Decolar para Simples Nacional." target="_blank" class="price-btn">Preparar para Decolar</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="card-icon-top"><i class="fas fa-ship"></i></div>
+                        <h3>Plano Cruzeiro</h3>
+                        <p class="plan-intro">Empresa in voo alto. Consultoria e controle personalizados.</p>
+                        <div class="price-limit"><i class="fas fa-chart-pie"></i> Faturamento até R$ 100.000,00/mês <br> <span>6 - 15 Funcionários</span></div>
+                        <ul class="price-features">
+                            <li class="feature-highlight"><i class="fas fa-plus"></i> Tudo do Intermediário +</li>
+                            <li><i class="fas fa-laptop-code"></i> Acompanhamento na implantação de sistemas</li>
+                            <li><i class="fas fa-folder-open"></i> SPED FISCAL*</li>
+                            <li><i class="fas fa-headset"></i> Suporte Personalizado</li>
+                            <li><i class="far fa-calendar-check"></i> Reunião Mensal</li>
+                            <li><i class="far fa-comment-dots"></i> Consultoria Mensal</li>
+                        </ul>
+                        <div class="plan-slogan">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Velocidade de cruzeiro, você olha para o crescimento, nós olhamos seus números.</p>
+                        </div>
+                        <a href="https://wa.me/5583999423099?text=Olá! Gostaria de contratar o Plano Cruzeiro para Simples Nacional." target="_blank" class="price-btn">Entrar em Velocidade de Cruzeiro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BARRA DE DIFERENCIAIS -->
+        <div class="plans-benefits-bar">
+            <div class="benefit-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <strong>Tranquilidade</strong>
+                    <span>Para decidir</span>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="far fa-clock"></i>
+                <div>
+                    <strong>Tempo para</strong>
+                    <span>O que importa</span>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-chart-bar"></i>
+                <div>
+                    <strong>Gestão que</strong>
+                    <span>Faz acontecer</span>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-handshake"></i>
+                <div>
+                    <strong>Contabilidade</strong>
+                    <span>Que apoia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- INSTAGRAM -->
     <section class="section" style="background: #141414; border-top: 1px solid rgba(255,255,255,0.01);">
         <div class="section-header">
@@ -558,7 +915,6 @@
         </div>
 
         <div class="insta-grid">
-            <!-- POST 1 -->
             <a href="https://www.instagram.com/p/DAiprKwxIpS/?igsh=MTl0Z2NidHcxYXB1Zg==" target="_blank" class="insta-post">
                 <div class="insta-header">
                     <div class="insta-avatar"><i class="fas fa-building"></i></div>
@@ -572,7 +928,6 @@
                 </div>
             </a>
 
-            <!-- POST 2 -->
             <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="insta-post">
                 <div class="insta-header">
                     <div class="insta-avatar"><i class="fas fa-building"></i></div>
@@ -586,7 +941,6 @@
                 </div>
             </a>
 
-            <!-- POST 3 -->
             <a href="https://instagram.com/jlsolucoescontabeis_" target="_blank" class="insta-post">
                 <div class="insta-header">
                     <div class="insta-avatar"><i class="fas fa-building"></i></div>
@@ -630,22 +984,26 @@
             </div>
 
             <div class="footer-column">
-                <h3 class="footer-title">Soluções</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Contabilidade Digital</a></li>
-                    <li><a href="#">Abertura de Empresas</a></li>
-                    <li><a href="#">Planejamento Tributário</a></li>
-                    <li><a href="#">Gestão Financeira</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
                 <h3 class="footer-title">Fale Conosco</h3>
                 <ul class="footer-contact">
                     <li><i class="fas fa-map-marker-alt"></i> João Pessoa, PB</li>
                     <li><i class="fas fa-phone-alt"></i> (83) 99942-3099</li>
                     <li><i class="fas fa-envelope"></i> contato@jlsolucoes.com.br</li>
                 </ul>
+            </div>
+
+            <!-- NOVA COLUNA: MAPA PREMIUM INTERATIVO -->
+            <div class="footer-column">
+                <h3 class="footer-title">Localização</h3>
+                <div class="footer-map-wrapper">
+                    <!-- Iframe do Google Maps centralizado em João Pessoa com filtro dark via CSS -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63356.40455850937!2d-34.88126785!3d-7.1182283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace8107cd93b0f%3A0x67399b646bc20e36!2sJo%C3%A3o%20Pessoa%2C%20PB!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
 
